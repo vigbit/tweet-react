@@ -5,33 +5,37 @@ import tweets from 'tweets'
 
 
 
-// class ListItem extends React.Component {
+class ListItem extends React.Component {
 
-//     render() {
+    render() {
 
-//       console.log(this.props)
+      console.log(this.props)
 
-//       let listColors = this.props.tweets.tweets.map(color => {
-//           return <li>{color}</li>
-//       })
+      let tweet = this.props.tweet
+      // let listTweets = this.props.map(tweet => {
+      //     return <div></div>
 
-//         return (
-//           <div>
-//           <li>{this.props.tweets.tweet}</li>
-//           <li>{this.props.item.weight}</li>
-//           <li>{listColors}</li>
-//           </div>
 
-//         );
-//     }
-// }
+      // })
+
+        return (
+          <div>
+            <li>{tweet.text}</li>
+            <li>{tweet.user.profile_image_url}</li>
+            <li>{tweet.user.screen_name}</li>
+            <li>{tweet.user.url}</li>
+          </div>
+
+        );
+    }
+}
 
 
 class App extends React.Component {
   render() {
       console.log(this.props.tweets.tweets)
       let userTweets = this.props.tweets.tweets.map( (tweet) => {
-        return <li>{tweet.user.screen_name}</li>
+        return <ListItem tweet={tweet}></ListItem>
       })
 
     return (
