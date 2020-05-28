@@ -8,8 +8,14 @@ import tweets from 'tweets'
 class ListItem extends React.Component {
 
     render() {
+      const mystyle = {
+      color: "white",
+      backgroundColor: "DodgerBlue",
+      padding: "10px",
+      fontFamily: "Arial"
+    };
 
-      console.log(this.props)
+      //console.log(this.props)
 
       let tweet = this.props.tweet
       // let listTweets = this.props.map(tweet => {
@@ -19,10 +25,10 @@ class ListItem extends React.Component {
       // })
 
         return (
-          <div>
-            <li>{tweet.text}</li>
-            <li>{tweet.user.profile_image_url}</li>
+          <div style= {mystyle}>
+            <li><img src={tweet.user.profile_image_url}/></li>
             <li>{tweet.user.screen_name}</li>
+            <li>{tweet.text}</li>
             <li>{tweet.user.url}</li>
           </div>
 
@@ -33,7 +39,7 @@ class ListItem extends React.Component {
 
 class App extends React.Component {
   render() {
-      console.log(this.props.tweets.tweets)
+      //console.log(this.props.tweets.tweets)
       let userTweets = this.props.tweets.tweets.map( (tweet) => {
         return <ListItem tweet={tweet}></ListItem>
       })
